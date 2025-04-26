@@ -7,7 +7,7 @@ from send_message_automatic import (
 )
 from fastapi.staticfiles import StaticFiles
 from check_message import check_message
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse,HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.templating import Jinja2Templates
 
