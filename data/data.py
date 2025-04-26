@@ -36,7 +36,7 @@ machine1_data = {
     "header": "BULLDOZER",
     "footer": "Please choose a machine.",
     "media_type": "image",  # Media type is an image
-    "media_url": "https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "media_url": "https://automation-rrcj.onrender.com/static/images.jpeg",
     "caption": "your caption for image or video media types",
     "file_name": "testFileName",
 }
