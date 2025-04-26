@@ -9,9 +9,11 @@ from fastapi.staticfiles import StaticFiles
 from check_message import check_message
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Change this to your frontend origin in production
@@ -23,10 +25,9 @@ app.add_middleware(
 seen_messages = set()
 
 
-@app.get("/test")
-async def test(request: Request):
-    return {"status": "testing bro"}
-
+@app.get("/", response_class=HTMLResponse)
+async def get_index(request: Request):
+    return templates.TemplateResponse("send_msg.html", {"request": request})
 
 @app.post("/webhook")
 async def zapup_webhook(request: Request):
